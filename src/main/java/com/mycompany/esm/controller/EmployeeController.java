@@ -1,5 +1,6 @@
 package com.mycompany.esm.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +10,15 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.mycompany.esm.model.Employee;
+import com.mycompany.esm.model.Skill;
 import com.mycompany.esm.service.EmployeeService;
 
 @Controller
 @RequestMapping("/employee")
+@SessionAttributes("skills")
 public class EmployeeController {
 
 	@Autowired
@@ -53,7 +57,11 @@ public class EmployeeController {
 		employeeService.deleteEmployee(id);
 
 		return "redirect:/employee/listEmployees";
-
+	}
+	
+	@ModelAttribute("skills")
+	public List<Skill> initializeSkills() {
+		return employeeService.getAllSkills();
 	}
 
 }

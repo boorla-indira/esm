@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.mycompany.esm.dao.EmployeeDao;
 import com.mycompany.esm.model.Employee;
+import com.mycompany.esm.model.Skill;
 import com.mycompany.esm.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
@@ -37,6 +38,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public void deleteEmployee(Long id) {
 		// TODO Auto-generated method stub
 		employeeDao.deleteEmployee(id);
+	}
+	
+	public List<Skill> getAllSkills() {
+		// TODO Auto-generated method stub
+		return employeeDao.getAllSkills();
 	}
 
 }

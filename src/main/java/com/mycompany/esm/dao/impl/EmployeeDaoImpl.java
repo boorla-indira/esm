@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.mycompany.esm.dao.EmployeeDao;
 import com.mycompany.esm.model.Employee;
+import com.mycompany.esm.model.Skill;
 
 @Repository
 public class EmployeeDaoImpl implements EmployeeDao {
@@ -56,6 +57,11 @@ public class EmployeeDaoImpl implements EmployeeDao {
 		}
 		
 
+	}
+
+	public List<Skill> getAllSkills() {
+		// TODO Auto-generated method stub
+		return getSession().createCriteria(Skill.class).list();
 	}
 
 }

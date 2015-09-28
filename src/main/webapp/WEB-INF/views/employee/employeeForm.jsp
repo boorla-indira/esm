@@ -8,8 +8,7 @@
 
 	<fieldset>
 		<legend></legend>
-
-
+		
 		<div class="pure-control-group">
 			<label for="name">Name</label>
 			<form:input path="name" placeholder="Employee Name" />
@@ -19,9 +18,13 @@
 			<label for="code">Department</label>
 			<form:input path="department" placeholder="Department" maxlength="15" />
 		</div>
+		
+		<div class="pure-control-group">
+			<label for="code">Skills</label>
+			<form:select path="skills" items="${skills}" multiple="true" itemValue="id" itemLabel="type" class="form-control input-sm" />
+		</div>		
 
 		<form:input path="id" type="hidden" />
-
 	</fieldset>
 
 </form:form>
