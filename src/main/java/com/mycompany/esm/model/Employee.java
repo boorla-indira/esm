@@ -17,8 +17,15 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Employee")
 public class Employee {
+	@Id
+	@Column(name="EMPLOYEE_ID")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
+	@Column(nullable = false)
 	private String name;
+	
+	@Column(nullable = false)
 	private String department;
 
 	@ManyToMany(cascade = { CascadeType.ALL })
@@ -27,18 +34,23 @@ public class Employee {
 				inverseJoinColumns = { @JoinColumn(name = "SKILL_ID") })
 	private Set<Skill> skills = new HashSet<Skill>();
 
-	@Id
-	@Column(name="EMPLOYEE_ID")
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	
 	public Long getId() {
 		return id;
+	}
+
+	public Set<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(Set<Skill> skills) {
+		this.skills = skills;
 	}
 
 	public void setId(Long id) {
 		this.id = id;
 	}
-
-	@Column(nullable = false)
+	
 	public String getName() {
 		return name;
 	}
@@ -47,7 +59,7 @@ public class Employee {
 		this.name = name;
 	}
 
-	@Column(nullable = false)
+	
 	public String getDepartment() {
 		return department;
 	}

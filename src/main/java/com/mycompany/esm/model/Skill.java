@@ -19,7 +19,7 @@ public class Skill {
 	private Long skillId;
 	
 	@Column(name="SKILLNAME")
-	private String skillName;
+	private String name;
 	
 	@ManyToMany (mappedBy="skills")
 	private Set<Employee> employees = new HashSet<Employee>();
@@ -36,12 +36,12 @@ public class Skill {
 	public void setSkillId(Long skillId) {
 		this.skillId = skillId;
 	}
-	public String getSkillName() {
-		return skillName;
+	public String getName() {
+		return name;
 	}
-	public void setSkillName(String skillName) {
-		this.skillName = skillName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
+	
 	
 }

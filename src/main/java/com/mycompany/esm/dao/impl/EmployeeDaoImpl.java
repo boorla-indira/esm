@@ -55,8 +55,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 			System.out.println("deleteEmployee employee id name "+employee.getId()+" -- "+employee.getName());
 			getSession().delete(employee);
 		}
-		
-
 	}
 
 	public List<Skill> getAllSkills() {
