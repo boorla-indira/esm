@@ -33,95 +33,43 @@ th {
 			<%@ include file="employeeForm.jsp"%>
 
 		</div>
-
-
-
-
+		
 		<h1>List Of Books</h1>
-
-
 		<button class="pure-button pure-button-primary"
 			onclick="addEmployee()">
-
 			<i class="fa fa-plus"></i> Add Employee
-
 		</button>
 
 		<br>
 
 		<table class="pure-table pure-table-bordered pure-table-striped">
-
 			<thead>
-
 				<tr>
-
 					<th width="4%">S.N</th>
-
 					<th width="12%">Name</th>
-
-					<th width="12%">Department</th>
-					<!-- 
-                  <th width="12%">Price</th>
-
-                  <th width="12%">Authors</th>
-
-                  <th width="12%">ISBN</th>
-
-                  <th width="12%">Publisher</th>
-
-                  <th width="12%">Published On</th>
- -->
+					<th width="12%">Department</th>					
 					<th width="12%"></th>
-
 				</tr>
-
 			</thead>
 
 			<tbody>
 
-				<c:forEach items="${employeeList}" var="book"
+				<c:forEach items="${employeeList}" var="employee"
 					varStatus="loopCounter">
-
 					<tr>
-
 						<td><c:out value="${loopCounter.count}" /></td>
-
 						<td><c:out value="${employee.name}" /></td>
-
-						<td><c:out value="${book.department}" /></td>
-						<!-- 
-                   <td><c:out value="${book.price}" /></td>
-
-                   <td><c:out value="${book.authors}" /></td>
-
-                   <td><c:out value="${book.isbn}" /></td>
-
-                   <td><c:out value="${book.publisher}" /></td>
-
-                   <td><c:out value="${book.publishedOn}" /></td>
- -->
-
-
-
+						<td><c:out value="${employee.department}" /></td>						
 						<td><nobr>
-
 								<button onclick="editEmployee(${employee.id});"
 									class="pure-button pure-button-primary">
-
-
 									<i class="fa fa-pencil"></i> Edit
-
 								</button>
-
-
-
 
 								<a href="delete/${employee.id}"
 									class="pure-button pure-button-primary"
 									onclick="return confirm('Are you sure you want to delete this employee?');">
-
 									<i class="fa fa-times"></i>Delete
-
 								</a>
 
 							</nobr></td>
@@ -137,8 +85,6 @@ th {
 	</div>
 
 	<!--  It is advised to put the <script> tags at the end of the document body so that they don't block rendering of the page -->
-
-
 
 	<script type="text/javascript"
 		src='<c:url value="/web-resources/js/lib/jquery-1.10.2.js"/>'></script>
