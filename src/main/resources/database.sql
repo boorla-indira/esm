@@ -11,6 +11,8 @@ create table SKILL(
    PRIMARY KEY (skill_id)
 );
   
+
+
 CREATE TABLE EMPLOYEE_SKILL (
     employee_id BIGINT NOT NULL,
     skill_id BIGINT NOT NULL,
