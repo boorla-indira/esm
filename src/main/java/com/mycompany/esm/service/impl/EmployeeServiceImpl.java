@@ -30,7 +30,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Transactional(readOnly = true)
 	public Employee getEmployee(Long id) {
-		// TODO Auto-generated method stub
+		System.out.println("EmployeeServiceImpl --getEmployee : " + id);
 		return employeeDao.getEmployee(id);
 	}
 
@@ -44,5 +44,12 @@ public class EmployeeServiceImpl implements EmployeeService {
 		// TODO Auto-generated method stub
 		return employeeDao.getAllSkills();
 	}
+
+	public Skill getSkill(Long id) {
+		// TODO Auto-generated method stub
+		return employeeDao.getSkill(id);
+	}
+
+	
 
 }

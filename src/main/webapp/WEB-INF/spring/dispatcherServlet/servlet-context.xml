@@ -14,6 +14,7 @@
 
 	<!-- for get request for '/web-resources/**' by serving resources from '/resources/' -->
 	<resources mapping="/web-resources/**" location="/resources/" />
+	
 
 	<beans:bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

@@ -2,6 +2,7 @@ package com.mycompany.esm.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public List<Employee> listEmployees() {
-		// TODO Auto-generated method stub
+		System.out.println(" getSessionFactory() : employee : : "+ getSessionFactory());
 		return getSession().createCriteria(Employee.class).list();
 	}
 
@@ -41,10 +42,14 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	
 	public Session getSession(){
-		Session session = getSessionFactory().getCurrentSession();
-		if(session == null){
+		Session session = null;
+		try{
+			session = getSessionFactory().getCurrentSession();
+		} catch (HibernateException hibernateException){
 			session = getSessionFactory().openSession();
 		}
+		
+		
 		return session;
 	}
 
@@ -58,8 +63,13 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public List<Skill> getAllSkills() {
-		// TODO Auto-generated method stub
+		System.out.println("getAllSkills() getSessionFactory() : employee : : "+ getSessionFactory());
 		return getSession().createCriteria(Skill.class).list();
+	}
+
+	public Skill getSkill(Long id) {
+		// TODO Auto-generated method stub
+		return (Skill)getSession().get(Skill.class, id);
 	}
 
 }

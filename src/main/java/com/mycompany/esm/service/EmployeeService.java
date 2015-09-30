@@ -15,5 +15,7 @@ public interface EmployeeService {
 	public void deleteEmployee(Long id);
 	
 	public List<Skill> 	getAllSkills();
+
+	public Skill getSkill(Long id);
 	
 }

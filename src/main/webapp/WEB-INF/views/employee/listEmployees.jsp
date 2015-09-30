@@ -34,7 +34,7 @@ th {
 
 		</div>
 		
-		<h1>List Of Books</h1>
+		<h1>List of Employees</h1>
 		<button class="pure-button pure-button-primary"
 			onclick="addEmployee()">
 			<i class="fa fa-plus"></i> Add Employee

@@ -21,7 +21,7 @@
 		
 		<div class="pure-control-group">
 			<label for="code">Skills</label>
-			<form:select path="skills" items="${skills}" multiple="true" itemValue="id" itemLabel="type" class="form-control input-sm" />
+			<form:select path="skills" items="${skillsList}" multiple="true" itemValue="id" itemLabel="name" class="form-control input-sm" />
 		</div>		
 
 		<form:input path="id" type="hidden" />
