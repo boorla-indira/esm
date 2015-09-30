@@ -83,9 +83,10 @@ public class EmployeeController {
 			System.out.println("Skill "+skill.getName() +" - "+skill.getId());
 			
 		}
-		return employeeService.getAllSkills();
+		return skills;
 	}
 
+	/*
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) throws Exception{
 		System.out.println("In initBinder");
@@ -94,31 +95,33 @@ public class EmployeeController {
 			protected Object convertElement(Object element) {
 				Long id = null;
 				if(element instanceof String && !((String)element).equals("")){
+					System.out.println("element instanceof String && !((String)element).equals()");
 					try{
+						System.out.println("try Element was "+ (String)element);
 						id = Long.parseLong((String)element);
 					}catch(NumberFormatException e){
-						System.out.println("Element was "+ (String)element);
+						System.out.println("catch Element was "+ (String)element);
 						e.printStackTrace();
 					}
 				}
 				else if (element instanceof Long){
+					System.out.println("element instanceof Long "+element);
 					id = (Long)element;
 				}
-				/*if(element instanceof Skill){
-					System.out.println("Converting from Skill to Skill "+element);
-					return element;
+				
+				if(id !=null){
+					System.out.println("if id !=null");
+					return employeeService.getSkill(id);
+					
+				}else{
+					System.out.println("id== null else");
+					return null;
 				}
-				if(element instanceof Integer){
-					Skill skill = employeeService.getSkill((String)element);
-					return skill;
-				}
-				System.out.println("Don't know what to do with: " + element);
-				return null;*/
-				return id !=null ? employeeService.getSkill(id): null;
+				//return id !=null ? employeeService.getSkill(id): null;
 
 			}
 		});
 	}
 	
-	
+	*/
 }

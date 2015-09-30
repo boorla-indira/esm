@@ -68,7 +68,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public Skill getSkill(Long id) {
-		// TODO Auto-generated method stub
+		System.out.println("EmployeeDaoImpl -- getSkill(Long id)");
 		return (Skill)getSession().get(Skill.class, id);
 	}
 

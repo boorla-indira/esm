@@ -20,7 +20,6 @@ create table SKILL(
    SKILLNAME VARCHAR(30) NOT NULL,
    PRIMARY KEY (skill_id)
 );
-  
 
 
 CREATE TABLE EMPLOYEE_SKILL (

@@ -46,7 +46,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	public Skill getSkill(Long id) {
-		// TODO Auto-generated method stub
+		System.out.println("EmployeeServiceImpl - getSkill(Long id)");
 		return employeeDao.getSkill(id);
 	}
 
