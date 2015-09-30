@@ -24,7 +24,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Transactional(readOnly = true)
 	public List<Employee> listEmployees() {
-		// TODO Auto-generated method stub
+		System.out.println("EmployeeServiceImpl - listEmployees");
 		return employeeDao.listEmployees();
 	}
 
@@ -48,6 +48,11 @@ public class EmployeeServiceImpl implements EmployeeService {
 	public Skill getSkill(Long id) {
 		System.out.println("EmployeeServiceImpl - getSkill(Long id)");
 		return employeeDao.getSkill(id);
+	}
+
+	public List<Employee> getEmployeesBySkills(Long skillId) {
+		// TODO Auto-generated method stub
+		return employeeDao.getEmployeesBySkills(skillId);
 	}
 
 	

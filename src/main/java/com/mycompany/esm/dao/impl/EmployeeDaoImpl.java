@@ -2,7 +2,10 @@ package com.mycompany.esm.dao.impl;
 
 import java.util.List;
 
+
+
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +35,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public List<Employee> listEmployees() {
-		System.out.println(" getSessionFactory() : employee : : "+ getSessionFactory());
+		System.out.println("EmployeeDaoImpl listEmployees() : : ");
 		return getSession().createCriteria(Employee.class).list();
 	}
 
@@ -70,6 +73,23 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	public Skill getSkill(Long id) {
 		System.out.println("EmployeeDaoImpl -- getSkill(Long id)");
 		return (Skill)getSession().get(Skill.class, id);
+	}
+
+	public List<Employee> getEmployeesBySkills(Long skillId) {
+		// TODO Auto-generated method stub
+		//"FROM com.smallworks.model.User as u LEFT JOIN u.contacts as c WHERE u.userId=:userId AND c.status=:status"
+		//FROM com.src.model.Contact c INNER JOIN c.userSet u WHERE u.userID=:userID
+		//String[] tags = {"Java", "Hibernate"};
+		System.out.println("EmoloyeeDao -- getEmployeesBySkills : "+skillId);
+		String hql = "select distinct a from Employee a " +
+		                "join a.skills t " +
+		                "where t.id =:skillId";
+		Query query = getSession().createQuery(hql);
+		query.setParameter("skillId", skillId);
+		List<Employee> employees = query.list();
+		System.out.println("Employees "+employees);
+		
+		return employees;
 	}
 
 }

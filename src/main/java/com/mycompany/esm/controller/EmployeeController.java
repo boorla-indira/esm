@@ -31,8 +31,16 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
+/*
+	@RequestMapping(value = { "/" })
+	public String main(Map<String, Object> map) {
+		System.out.println("Inside main");
+		
 
-	@RequestMapping(value = { "/", "/listEmployees" })
+		return "/employee/listEmployees";
+	}
+	*/
+	@RequestMapping(value = { "/listEmployees" })
 	public String listEmployees(Map<String, Object> map) {
 		System.out.println("Inside listEmployees");
 		map.put("employee", new Employee());
@@ -66,7 +74,7 @@ public class EmployeeController {
 		//System.out.println(employee.);
 		employeeService.saveEmployee(employee);
 
-		return "redirect:listEmployees";
+		return "redirect:/employee/listEmployees";
 	}
 
 	@RequestMapping("/delete/{employeeId}")
@@ -88,9 +96,27 @@ public class EmployeeController {
 		}
 		return skills;
 	}
+	
+	@RequestMapping("/skills")
+	public String getAllSkills(Map<String, Object> map){
+		return "/employee/listSkills";
+	}
+	
+	@RequestMapping("/skills/{skillId}")
+	public String getEmployeeWithSkill(@PathVariable Long skillId,
+			Map<String, Object> map) {
+		//Employee employee = employeeService.getEmployee(employeeId);
+		//map.put("employee", employee);
+		List<Employee> employeesWithSkills = employeeService.getEmployeesBySkills(skillId);
+		map.put("employeesWithSkills", employeesWithSkills);
+		return "/employee/employeesWithSkills";
+	}
+	
 	@InitBinder
 	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception{
+			
 			System.out.println("In initBinder");
+			System.out.println("binder.getObjectName() :"+binder.getObjectName());
 			binder.registerCustomEditor(Set.class, "skills", new CustomCollectionEditor(Set.class){
 				@Override
 				protected Object convertElement(Object element) {

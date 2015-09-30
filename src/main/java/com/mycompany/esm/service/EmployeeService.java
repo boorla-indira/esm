@@ -17,5 +17,7 @@ public interface EmployeeService {
 	public List<Skill> 	getAllSkills();
 
 	public Skill getSkill(Long id);
+
+	public List<Employee> getEmployeesBySkills(Long skillId);
 	
 }
