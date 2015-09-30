@@ -28,7 +28,8 @@ public class Skill implements Serializable {
 	@Column(name="SKILLNAME")
 	private String name;
 	
-	@ManyToMany (fetch = FetchType.LAZY, mappedBy="skills")
+	//@ManyToMany (fetch = FetchType.LAZY, mappedBy="skills")
+	@ManyToMany (mappedBy="skills")
 	private Set<Employee> employees = new HashSet<Employee>();
 	
 	public Set<Employee> getEmployees() {

@@ -5,10 +5,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomCollectionEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -85,7 +88,41 @@ public class EmployeeController {
 		}
 		return skills;
 	}
+	@InitBinder
+	protected void initBinder(HttpServletRequest request, ServletRequestDataBinder binder) throws Exception{
+			System.out.println("In initBinder");
+			binder.registerCustomEditor(Set.class, "skills", new CustomCollectionEditor(Set.class){
+				@Override
+				protected Object convertElement(Object element) {
+					Long id = null;
+					if(element instanceof String && !((String)element).equals("")){
+						System.out.println("element instanceof String && !((String)element).equals()");
+						try{
+							System.out.println("try Element was "+ (String)element);
+							id = Long.parseLong((String)element);
+						}catch(NumberFormatException e){
+							System.out.println("catch Element was "+ (String)element);
+							e.printStackTrace();
+						}
+					}
+					else if (element instanceof Long){
+						System.out.println("element instanceof Long "+element);
+						id = (Long)element;
+					}
+					
+					if(id !=null){
+						System.out.println("if id !=null");
+						return employeeService.getSkill(id);
+						
+					}else{
+						System.out.println("id== null else");
+						return null;
+					}
+					//return id !=null ? employeeService.getSkill(id): null;
 
+				}
+			});
+	}
 	/*
 	@InitBinder
 	protected void initBinder(WebDataBinder binder) throws Exception{
