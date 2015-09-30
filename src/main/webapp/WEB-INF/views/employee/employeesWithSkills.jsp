@@ -22,6 +22,10 @@
 <body>
 
 <h1>List of Employees with Skills</h1>
+<br /><br />
+<a href="/esm/employee/skills" class="pure-button pure-button-primary" >
+								<i class="fa fa-times"></i>Back to Skills List
+							</a> <br /><br />
 	<table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>
 				<tr>

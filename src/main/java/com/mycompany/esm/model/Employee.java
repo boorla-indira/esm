@@ -48,7 +48,7 @@ public class Employee implements Serializable{
 	}
  */
 	//@ManyToMany(fetch= FetchType.LAZY, cascade = CascadeType.ALL )
-	@ManyToMany(cascade = CascadeType.ALL )
+	@ManyToMany(fetch = FetchType.LAZY )
 	@JoinTable(name = "EMPLOYEE_SKILL",
 				joinColumns = { @JoinColumn(name = "EMPLOYEE_ID") }, 
 				inverseJoinColumns = { @JoinColumn(name = "SKILL_ID") })

@@ -21,6 +21,7 @@ th {
 </head>
 <body>
 <h1>List of Skills</h1>
+
 <table class="pure-table pure-table-bordered pure-table-striped">
 			<thead>
 				<tr>

@@ -20,18 +20,12 @@ th {
 
 </head>
 
-
-
-
 <body>
 
 	<div style="width: 95%; margin: 0 auto;">
 
-
 		<div id="employeeDialog" style="display: none;">
-
 			<%@ include file="employeeForm.jsp"%>
-
 		</div>
 		
 		<h1>List of Employees</h1>
@@ -39,7 +33,9 @@ th {
 			onclick="addEmployee()">
 			<i class="fa fa-plus"></i> Add Employee
 		</button>
-
+		<a href="/esm/employee/skills" class="pure-button pure-button-primary" >
+			<i class="fa fa-times"></i>Skill - Search Employees by Skills
+		</a>
 		<br>
 
 		<table class="pure-table pure-table-bordered pure-table-striped">

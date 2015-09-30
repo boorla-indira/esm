@@ -21,8 +21,10 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Autowired
 	private SessionFactory sessionFactory;
 	public void saveEmployee(Employee employee) {
+		System.out.println("EmployeeDaoImpl - saveEmployee - Start");
 		System.out.println("EmployeeDaoImpl saveEmployee : employee name : "+employee.getName());
 		getSession().merge(employee);
+		System.out.println("EmployeeDaoImpl - saveEmployee - End");
 
 	}
 
@@ -45,14 +47,19 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 	
 	public Session getSession(){
+		
 		Session session = null;
+		/*
 		try{
 			session = getSessionFactory().getCurrentSession();
 		} catch (HibernateException hibernateException){
 			session = getSessionFactory().openSession();
-		}
+			
+		}	
+		  
+		*/
 		
-		
+		session = getSessionFactory().getCurrentSession();
 		return session;
 	}
 

@@ -18,7 +18,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Transactional
 	public void saveEmployee(Employee employee) {
+		System.out.println("EmployeeServiceImpl - start");
 		employeeDao.saveEmployee(employee);
+		System.out.println("EmployeeServiceImpl - End");
 
 	}
 
@@ -40,16 +42,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 		employeeDao.deleteEmployee(id);
 	}
 	
+	@Transactional(readOnly = true)
 	public List<Skill> getAllSkills() {
 		// TODO Auto-generated method stub
 		return employeeDao.getAllSkills();
 	}
 
+	@Transactional(readOnly = true)
 	public Skill getSkill(Long id) {
 		System.out.println("EmployeeServiceImpl - getSkill(Long id)");
 		return employeeDao.getSkill(id);
 	}
-
+	
+	@Transactional(readOnly = true)
 	public List<Employee> getEmployeesBySkills(Long skillId) {
 		// TODO Auto-generated method stub
 		return employeeDao.getEmployeesBySkills(skillId);

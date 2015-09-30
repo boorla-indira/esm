@@ -40,7 +40,7 @@ public class EmployeeController {
 		return "/employee/listEmployees";
 	}
 	*/
-	@RequestMapping(value = { "/listEmployees" })
+	@RequestMapping("/listEmployees")
 	public String listEmployees(Map<String, Object> map) {
 		System.out.println("Inside listEmployees");
 		map.put("employee", new Employee());
