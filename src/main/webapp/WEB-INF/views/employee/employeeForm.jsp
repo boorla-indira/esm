@@ -29,19 +29,9 @@
 				<td> <form:select path="skills" items="${skillsList}" multiple="true" itemValue="id" itemLabel="name" class="form-control input-sm" /></td>
 			</tr>
 		</table>
-		
-
-		<div class="pure-control-group">
-			
-			
-		</div>
-		
-		<div class="pure-control-group">
-			
-			
-		</div>		
-
+				
 		<form:input path="id" type="hidden" />
+		
 	</fieldset>
 
 </form:form>
