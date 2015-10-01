@@ -31,15 +31,7 @@ public class EmployeeController {
 
 	@Autowired
 	private EmployeeService employeeService;
-/*
-	@RequestMapping(value = { "/" })
-	public String main(Map<String, Object> map) {
-		System.out.println("Inside main");
-		
 
-		return "/employee/listEmployees";
-	}
-	*/
 	@RequestMapping("/listEmployees")
 	public String listEmployees(Map<String, Object> map) {
 		System.out.println("Inside listEmployees");
@@ -144,47 +136,8 @@ public class EmployeeController {
 						System.out.println("id== null else");
 						return null;
 					}
-					//return id !=null ? employeeService.getSkill(id): null;
-
 				}
 			});
 	}
-	/*
-	@InitBinder
-	protected void initBinder(WebDataBinder binder) throws Exception{
-		System.out.println("In initBinder");
-		binder.registerCustomEditor(Set.class, "skills", new CustomCollectionEditor(Set.class){
-			@Override
-			protected Object convertElement(Object element) {
-				Long id = null;
-				if(element instanceof String && !((String)element).equals("")){
-					System.out.println("element instanceof String && !((String)element).equals()");
-					try{
-						System.out.println("try Element was "+ (String)element);
-						id = Long.parseLong((String)element);
-					}catch(NumberFormatException e){
-						System.out.println("catch Element was "+ (String)element);
-						e.printStackTrace();
-					}
-				}
-				else if (element instanceof Long){
-					System.out.println("element instanceof Long "+element);
-					id = (Long)element;
-				}
-				
-				if(id !=null){
-					System.out.println("if id !=null");
-					return employeeService.getSkill(id);
-					
-				}else{
-					System.out.println("id== null else");
-					return null;
-				}
-				//return id !=null ? employeeService.getSkill(id): null;
-
-			}
-		});
-	}
 	
-	*/
 }

@@ -21,6 +21,7 @@ th {
 </head>
 <body>
 <br /><br />
+<h1> Employee Skills Management</h1>
 <table width="50%">
 <tr>
 	<td>&nbsp; </td>
@@ -29,15 +30,16 @@ th {
 		<i class="fa fa-times"></i>List of Employees -- Enter Employee Details 
 	</a> 
 	</td>
-</tr>
-<tr>
-	<td>&nbsp; </td>
 	<td>
-	<a href="employee/skills" class="pure-button pure-button-primary" >
+	</td>
+	
+	<td>
+		<a href="employee/skills" class="pure-button pure-button-primary" >
 		<i class="fa fa-times"></i>Skill - Search Employees by Skills
 	</a>
 	</td>
 </tr>
+
 </table>
 
 

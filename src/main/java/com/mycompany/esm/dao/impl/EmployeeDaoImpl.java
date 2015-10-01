@@ -20,6 +20,7 @@ public class EmployeeDaoImpl implements EmployeeDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
+	
 	public void saveEmployee(Employee employee) {
 		System.out.println("EmployeeDaoImpl - saveEmployee - Start");
 		System.out.println("EmployeeDaoImpl saveEmployee : employee name : "+employee.getName());
@@ -83,10 +84,6 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	}
 
 	public List<Employee> getEmployeesBySkills(Long skillId) {
-		// TODO Auto-generated method stub
-		//"FROM com.smallworks.model.User as u LEFT JOIN u.contacts as c WHERE u.userId=:userId AND c.status=:status"
-		//FROM com.src.model.Contact c INNER JOIN c.userSet u WHERE u.userID=:userID
-		//String[] tags = {"Java", "Hibernate"};
 		System.out.println("EmoloyeeDao -- getEmployeesBySkills : "+skillId);
 		String hql = "select distinct a from Employee a " +
 		                "join a.skills t " +
